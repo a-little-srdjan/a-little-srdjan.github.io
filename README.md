@@ -2,8 +2,12 @@
 
 In short:
 
-#### 2015-2020, CTO, SignalFrame (acquired by Pwc)
-#### 2019-, Machine Learning Advisor, Futurae.com
-#### 2019-2019, Datalake Architecture Advisor, ATBank/Fibr Netherlands
-#### 2012-2015, Senior Researcher, ETH Zurich
-#### 2008-2012, Phd (Security and applied AI), Imperial College London
+**2015-2020**, co-founder and CTO, _SignalFrame (acquired by Pwc)_
+
+**2019-**, Machine Learning Advisor, _Futurae.com_
+
+**2019**, Datalake and Analytics Advisor, _ATBank/Fibr Netherlands_
+
+**2012-2015**, Senior Researcher, _ETH Zurich_
+
+**2008-2012**, Phd (Security and applied AI), _Imperial College London_
