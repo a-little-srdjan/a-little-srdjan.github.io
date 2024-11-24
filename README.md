@@ -2,7 +2,7 @@
 
 In short:
 
-**2021-**, Director and Data Analytics Architect, _PwC (Products and Technology)_
+**2021-**, Data Analytics and AI Director, _PwC (Products and Technology)_
 
 **2015-2020**, co-founder and CTO, _SignalFrame (acquired by PwC)_
 
