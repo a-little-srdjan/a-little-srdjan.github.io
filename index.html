@@ -1,67 +1,120 @@
 <html>
+<head>
+    <title>a-little-srdjan</title>
+    <style>
+        body {
+            margin-left: 5em;
+            margin-top: 5em;
+            width: 65%;
+            min-width: 360px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            background-color: #2f3136;
+            color: #e0e0e0;
+            font-size: 16px;
+            max-width: 800px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 2rem;
+        }
 
-<head><title>a-little-srdjan</title>
-<style>
-	body {
-		margin-left: 5em;
-		margin-top:5em;
-		width: 65%;
-		min-width: 360px;
-		font-family: Helvetica, sans-serif;
-		line-height: 1.5;
-    }
+        li {
+            padding-bottom: 1em;
+            max-width: 65ch;
+        }
 
-    li {
-        padding-bottom: 0.25em;
-    }
-</style>
+        p {
+            max-width: 65ch;
+            margin-bottom: 1.5em;
+        }
+
+        a {
+            color: #89cff0;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(137, 207, 240, 0.3);
+            transition: border-bottom-color 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #89cff0;
+            text-decoration: none;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5em;
+            letter-spacing: -0.5px;
+        }
+
+        ul {
+            color: #e0e0e0;
+            padding-left: 1.5em;
+        }
+
+        ::selection {
+            background: #89cff0;
+            color: #2f3136;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 2em;
+                width: auto;
+                font-size: 15px;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<h2> Srdjan Marinovic </h2>
+<h2>Srdjan Marinovic</h2>
 
 <p>
-I am a computer scientist with interest in graph platforms, streaming systems, symbolic AI and deep learning, and formal verification and security models.
-When leading software development projects, I insist on "shipping it fast": building complex systems is a process of exploration and discovery.
+I'm a computer scientist interested in graph analytics, symbolic and deep learning AI, and distributed systems. With focus on building trustworthy, reliable, and scalable systems, I bridge the gap between research and practical engineering solutions. 
 </p>
 
 <p>
-I am currently a Tech and Innovation Lead at PwC. My focus is split between leading client-facing and internal tech projects:
+As Tech-and-Innovation Director at PwC, I drive the development of enterprise-scale AI and cloud solutions that combine the power of knowledge graphs, machine learning, and federated data platforms. My approach emphasize rapid iteration and shipping early to turning complex technical challenges into solutions with immediate business and ROI impact.
+</p>
+
+<p>
+Current focus areas at PwC:
+</p>
 <ul type="disc">
 <li>
-<a href="https://www.pwc.com/us/en/products/signal-graph.html">Signal Graph "Operational AI" Platform</a> - The platform focuses on generating
-automated insights from streaming timeseries data. These insights enrich the digital twin knowledge bases to help analysts focus on operational issues. 
-We use small LLMs to turn numerical insights into text for easier ranking. We have also developed an LLM-based query layer over the knowledge graph. This layer
-uses symbolic post-processing to ensure reliable insights.
+<a href="https://www.pwc.com/us/en/products/signal-graph.html">Signal Graph "Operational AI" Platform</a> - Leading the development of an advanced analytics platform that transforms streaming time-series data into actionable insights. Our system combines LLMs with knowledge graph platforms to provide reliable, context-aware operational intelligence. A key innovation is our symbolic post-processing layer, which ensures the accuracy and reliability of AI-generated insights.
 </li>
 <li>
-<a href="https://www.pwc.com/us/en/technology/alliances/microsoft/azure/smart-venue/smart-venues-solution.html">Smart Venues Solution</a> 
-We build Digital Twin platforms for IoT-enabled spaces to help analysts generate business insights and ROI on deployed sensors and ML infrastructure.
+<a href="https://www.pwc.com/us/en/technology/alliances/microsoft/azure/smart-venue/smart-venues-solution.html">Smart Venues Solution</a> - Architecting next-generation venue management systems that leverage IoT data and advanced analytics to enhance operational efficiency and user experience.
 </li>
 <li>
-Monitoring ROI on Code-generating Copilot deployments - We deploy our internal LLM reliability and efficacy monitoring framework to understand where Copilot-like
-solutions have most impact across codebases and developers. The key focus is on managing the deployments and transitions from PoC to production-ready LLM 
-deployments in SDLC workflows.
+Monitoring ROI of LLMs in Software Development - We developed a methodology and a set of tools to monitor and measure LLMs' reliability and efficacy when deployed across developers and different tasks in code generation. In our experience, moving from PoCs to large-scale deployments and production requires a new set of tools and trainings. 
 </li>
 <li>
-Organizational Network Analysis via GraphML - We use Machine Learning models on top of Graph representations of Organization's communication networks (chat, email, calendars)
-to understand the impact of policies on employees and informal employee networks.
+Passive Organizational Network Analysis - We use Graph-based Machine Learning models on top of communication networks (chat, email, calendars)
+to understand the impact of policies on employees and informal employee networks. This tool delivers organic insights into how teams operate, and how new-hires as well as established organizational influencers change over time.
 </li>
 </ul>
 
 <p>
-I have occasionaly served as an ML/data advisor to <a href="https://futurae.com">Futurae</a> on
+I have served as an ML/data advisor to <a href="https://futurae.com">Futurae</a> on
 <a href="AMLD_Presentation.pdf">fraud-detection</a> and adaptive-authentication models. 
 In 2020, I worked with <a href="https://fibr.com">Fibr Bank</a>
-on implementing an AWS-based data lake solution with strong integrity and forensics requirements.
+to implement an AWS-based data lake solution with strong integrity and lineage requirements.
 </p>
 
 <p>
 From 2015 to 2021, I was the technical co-founder and the CTO of <a href="signal_frame_investors_2020.pdf">SignalFrame</a>. PwC acquired the company in 2021.
-My team of ~20 engineers (UI, mobile, backend, ML) and I built a streaming temporal graph platform.
+My team of ~20 engineers (UI, mobile, backend, ML) built a streaming temporal graph platform.
 Our system collected data from ~1 billion IoT devices per month, and ingested ~100 million vertices with ~1 billion edges per day.
-The platform built graph embeddings in a streaming mode for temporal and spatial predictive analytics.
-My technical work was mostly focused on:
+The platform built graph embeddings for temporal and spatial predictive analytics. The practical applications centred around behavioral anomaly detection, and structural forecasting.
+My technical work was focused on:
 </p>
 
 <ul type="disc">
@@ -69,12 +122,12 @@ My technical work was mostly focused on:
 <li>Streaming framework with feedback loops (Golang)</li>
 <li>Distributed graph query system (Golang)</li>
 <li>Graph-pattern classifiers (Py and Scala)</li>
-<li>Knowledge-base with Markov(-ish) semantics</li>
+<li>Knowledge-base with Markov semantics</li>
 <li>Monitoring and automated recovery of Kubernetes services</li>
 </ul>
 
 <p>
-Prior to SignalFrame,
+Prior to SignalFrame, from 2012 to 2015,
 I was a senior researcher at <a href="https://informationsecurity.ethz.ch/">ETH Zurich's Security Institute</a>:
 </p>
 
@@ -82,25 +135,25 @@ I was a senior researcher at <a href="https://informationsecurity.ethz.ch/">ETH 
 <li>
 Database Security and Privacy – preventing probabilistic
 attacks on SQL DBs. Our algorithm used a Bayesian network synthesized from
-a probabilistic logic model and attack priors.
+a probabilistic logic model and attack priors to prevent information leakage from federated attackers.
 </li>
 
 <li> Distributed Systems Monitoring (with Google) –  metric temporal
-logics and streaming algorithms that handle missing and compromised
+logics and streaming algorithms that overcome handle missing and compromised
 system logs.
 </li>
 
 <li>
 Decentralized Authorization Systems (with Kaba Security) – tools to formally
-specify and verify authorization policies in decentralized settings. Our language is functionally-complete
-and captures ABAC, delegations, and compositions.
+specify and verify authorization policies in decentralized settings. Our language captures
+ABAC, authorization, delegations, and policy compositions. The tools can find policy bugs, inconsistencies, and over-permissive behaviours.  
 </li>
 </ul>
 
 <p>
-I received a PhD in Computing from <a href="https://www.imperial.ac.uk/computing">Imperial College London</a>.
-I developed a soft symbolic AI model (based on multi-valued logics) to ensemble unreliable and mutually-conflicting inputs.
-We applied this model to verify adaptive security models that enforce break-glass access control.
+In 2012, I received a PhD in Computing from <a href="https://www.imperial.ac.uk/computing">Imperial College London</a>.
+I developed a soft symbolic AI model (based on multi-valued and probabilistic logics) to reason over unreliable and mutually-conflicting inputs.
+We applied this model to specify and verify adaptive security models that make decisions under various failures.
 </p>
 
 <h3> A few talks and papers</h3>
@@ -116,9 +169,6 @@ We applied this model to verify adaptive security models that enforce break-glas
 </li>
 <li>
 <a href="Commune - Shared Ownership in an Agnsotic Cloud.pdf">Commune - Shared Ownership in an Agnostic Cloud</a>  (IEEE Trans. Information Forensics and Security 13(12) 2018)
-</li>
-<li>
-<a href="https://github.com/mschoch/goforprogrammers">Go For Programmers (One-day school)</a> (Washington DC; 2017)
 </li>
 <li>
 <a href="Securing_DBs_from_Probabilistic_Inference.pdf">Securing Databases from Probabilistic Inference</a>  (CSF 2017)
