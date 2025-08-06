@@ -2,11 +2,11 @@
 
 In short:
 
-**2021-**, Data Analytics and AI Director, _PwC (Products and Technology)_
+**2025-**, CTO, _Futurae.com_
+
+**2021-2024**, Data Analytics and AI Director, _PwC (Products and Technology)_
 
 **2015-2020**, co-founder and CTO, _SignalFrame (acquired by PwC)_
-
-**2019-**, Machine Learning Advisor, _Futurae.com_
 
 **2019**, Datalake and Analytics Advisor, _ATBank/Fibr Netherlands_
 
