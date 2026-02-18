@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srdjan Marinovic - Tech Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Solarized Dark Color Palette */
+        :root {
+            --base03:    #002b36;
+            --base02:    #073642;
+            --base01:    #586e75;
+            --base00:    #657b83;
+            --base0:     #839496;
+            --base1:     #93a1a1;
+            --base2:     #eee8d5;
+            --base3:     #fdf6e3;
+            --yellow:    #b58900;
+            --orange:    #cb4b16;
+            --red:       #dc322f;
+            --magenta:   #d33682;
+            --violet:    #6c71c4;
+            --blue:      #268bd2;
+            --cyan:      #2aa198;
+            --green:     #859900;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--base03) 0%, var(--base02) 100%);
+            color: var(--base0);
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 43, 54, 0.85);
+            border: 3px solid var(--cyan);
+            box-shadow:
+                0 0 10px rgba(42, 161, 152, 0.3),
+                inset 0 0 30px rgba(42, 161, 152, 0.05);
+            padding: 30px;
+            image-rendering: pixelated;
+        }
+
+        /* Pixel corner decorations */
+        .container::before,
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--cyan);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(42, 161, 152, 0.05);
+            border: 2px dashed var(--cyan);
+            position: relative;
+        }
+
+        .pixel-title {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--cyan);
+            font-size: 1.8em;
+            text-shadow:
+                3px 3px 0px var(--base02),
+                6px 6px 0px rgba(7, 54, 66, 0.5);
+            margin-bottom: 15px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow:
+                    3px 3px 0px var(--base02),
+                    6px 6px 0px rgba(7, 54, 66, 0.5),
+                    0 0 10px rgba(42, 161, 152, 0.4);
+            }
+            to {
+                text-shadow:
+                    3px 3px 0px var(--base02),
+                    6px 6px 0px rgba(7, 54, 66, 0.5),
+                    0 0 20px rgba(42, 161, 152, 0.6),
+                    0 0 30px rgba(42, 161, 152, 0.4);
+            }
+        }
+
+        .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6em;
+            color: var(--blue);
+            margin-top: 10px;
+        }
+
+        .intro {
+            background: rgba(42, 161, 152, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--cyan);
+            color: var(--base1);
+        }
+
+        /* Collapsible Section Styles */
+        .section {
+            margin-bottom: 20px;
+            border: 2px solid var(--base01);
+            background: rgba(7, 54, 66, 0.5);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: linear-gradient(90deg, var(--base02) 0%, var(--base03) 100%);
+            color: var(--cyan);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9em;
+            user-select: none;
+            transition: all 0.3s ease;
+            position: relative;
+            border-bottom: 1px solid var(--base01);
+        }
+
+        .section-header:hover {
+            background: linear-gradient(90deg, var(--base01) 0%, var(--base02) 100%);
+            box-shadow: 0 0 15px rgba(42, 161, 152, 0.3);
+            color: var(--base1);
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(42, 161, 152, 0.03) 2px,
+                rgba(42, 161, 152, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+
+        .toggle-icon {
+            font-family: monospace;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .section.expanded .toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 20px;
+            background: rgba(0, 43, 54, 0.9);
+        }
+
+        .section.expanded .section-content {
+            max-height: 2000px;
+            padding: 20px;
+            transition: max-height 0.7s ease-in, padding 0.3s ease-in;
+        }
+
+        h2 {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--cyan);
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: var(--blue);
+            font-size: 1em;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+
+        p {
+            color: var(--base0);
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            color: var(--base1);
+            margin: 12px 0;
+            padding: 10px;
+            padding-left: 30px;
+            position: relative;
+            background: rgba(42, 161, 152, 0.05);
+            border-left: 3px solid var(--cyan);
+            transition: all 0.2s ease;
+        }
+
+        li:hover {
+            background: rgba(42, 161, 152, 0.1);
+            border-left-width: 6px;
+            padding-left: 33px;
+            box-shadow: 0 0 10px rgba(42, 161, 152, 0.2);
+        }
+
+        li::before {
+            content: '▸';
+            position: absolute;
+            left: 10px;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--blue);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--cyan);
+            border-bottom: 1px solid var(--cyan);
+            text-shadow: 0 0 5px rgba(42, 161, 152, 0.5);
+        }
+
+        strong {
+            color: var(--base2);
+            font-weight: bold;
+        }
+
+        /* Pixel art decoration */
+        .pixel-decoration {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.8em;
+            color: var(--base01);
+            opacity: 0.4;
+        }
+
+        /* Terminal-style footer */
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(7, 54, 66, 0.8);
+            border: 2px solid var(--base01);
+            font-family: 'Courier New', monospace;
+            color: var(--base0);
+        }
+
+        .footer::before {
+            content: '> ';
+            color: var(--cyan);
+        }
+
+        /* Command prompt effect */
+        .command {
+            color: var(--green);
+            font-family: 'Courier New', monospace;
+        }
+
+        .command::before {
+            content: '$ ';
+            color: var(--blue);
+        }
+
+        /* Scanline effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .pixel-title {
+                font-size: 1.2em;
+            }
+
+            .section-header {
+                font-size: 0.7em;
+                padding: 12px 15px;
+            }
+
+            h2 {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Loading animation for page */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="pixel-title">SRDJAN MARINOVIC</div>
+            <div class="subtitle">srdjan.marinovic@gmail.com</div>
+        </div>
+
+        <div class="intro">
+            <p>I'm a computer scientist working on distributed graph platforms and analytics, and AI systems (both symbolic and deep learning). I focus on building secure, reliable, and scalable systems that bridge the gap between cutting-edge research and practical engineering solutions.</p>
+
+            <p>My journey spans academic research at ETH Zurich and Imperial College London, co-founding and scaling a graph analytics startup (acquired by PwC), and leading enterprise-scale data and AI initiatives within PwC. Currently, I am the CTO at <a href="https://futurae.com">Futurae</a> focusing on scaling out authentication and digital credentials products.</p>
+
+            <p>In my leadership roles, I focus on building and mentoring high-performing engineering teams through knowledge sharing and continuous delivery through strong monitoring and fail-safe mechanisms.</p>
+        </div>
+
+        <div class="pixel-decoration">▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼</div>
+
+        <!-- Futurae Section -->
+        <div class="section expanded">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>FUTURAE</span>
+                <span class="toggle-icon">▶</span>
+            </div>
+            <div class="section-content">
+                <p>As the CTO, I am working with Backend, SDK, QA, and Data teams on scaling Futurae's authentication, trust signals, and digital credentials products. This requires both platform and engineering delivery investments.</p>
+
+                <p>I am also collaborating very closely with the product and sales team on shaping our strong anti-phishing offering and risk-based authentications through Fido2 and ML models.</p>
+            </div>
+        </div>
+
+        <!-- PwC Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>PWC US</span>
+                <span class="toggle-icon">▶</span>
+            </div>
+            <div class="section-content">
+                <p>As a Tech-and-Innovation Director, I lead the development of enterprise-scale AI and cloud solutions that integrate knowledge graphs, machine learning, and federated data platforms. My approach emphasizes rapid iteration and deployments, transforming complex technical challenges into high-ROI business solutions.</p>
+
+                <h3>Key Initiatives:</h3>
+                <ul>
+                    <li><a href="https://www.pwc.com/us/en/products/signal-graph.html">Signal Graph "Operational AI" Platform</a> - Advanced analytics platform that processes streaming time-series data using LLMs and knowledge graphs for context-aware operational intelligence. Our innovative symbolic post-processing layer ensures reliable AI-generated insights.</li>
+
+                    <li><a href="https://www.pwc.com/us/en/technology/alliances/microsoft/azure/smart-venue/smart-venues-solution.html">Smart Venues Solution</a> - Next-generation venue management systems that leverage IoT data and advanced analytics for enhanced operational efficiency.</li>
+
+                    <li><strong>LLM ROI Monitoring in Software Development</strong> - Methodologies and tools to measure LLMs' reliability and effectiveness across development teams, focusing on the transition from PoCs to production-scale deployments. We also develop systems to enhance the effectiveness of LLMs in the development cycle (both code generation and code reviews).</li>
+
+                    <li><strong>Passive Organizational Network Analysis</strong> - Graph ML models on top of communication meta-data (such as email exchanges, chats, meetings, document collaborations) to understand informal organizational structures and influencers. Our product provides insights into how employment and team policies impact team dynamics and organizational evolution. We also focus on tracking how junior team members are included and promoted within an organization.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SignalFrame Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>SIGNALFRAME STARTUP</span>
+                <span class="toggle-icon">▶</span>
+            </div>
+            <div class="section-content">
+                <p>As technical co-founder and CTO of <a href="signal_frame_investors_2020.pdf">SignalFrame</a> (founded in 2015, acquired by PwC in 2021), I led a team of 20 engineers in building a streaming temporal graph platform that processed data from ~1 billion IoT devices monthly. Our daily stream consisted of ~100 million vertices with ~1 billion edges. On top of this knowledge graph we implemented advanced graph embeddings for temporal and spatial analytics. Our products focused on behavioral anomaly detection and structural forecasting.</p>
+
+                <h3>Technical Innovations:</h3>
+                <ul>
+                    <li>Temporal graph analytics engine</li>
+                    <li>Streaming framework with feedback loops (Golang)</li>
+                    <li>Distributed graph query system (Golang)</li>
+                    <li>Graph-pattern classifiers (Python and Scala)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Research Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>RESEARCH BACKGROUND</span>
+                <span class="toggle-icon">▶</span>
+            </div>
+            <div class="section-content">
+                <h3>Senior Researcher at <a href="https://informationsecurity.ethz.ch/">ETH Zurich's Security Institute</a> (2012-2015)</h3>
+                <ul>
+                    <li>Database Security: Developed probabilistic attack prevention for SQL databases using Bayesian networks</li>
+                    <li>Distributed Systems Monitoring: Created metric temporal logics for handling compromised and incomplete system logs (Google collaboration)</li>
+                    <li>Decentralized Authorization: Built formal verification tools for complex authorization policies and authentication systems (Kaba Security collaboration)</li>
+                </ul>
+
+                <h3>Ph.D. in Computing, <a href="https://www.imperial.ac.uk/computing">Imperial College London</a></h3>
+                <ul>
+                    <li>Developed soft symbolic AI models using multi-valued and probabilistic logics</li>
+                    <li>Created adaptive security models for decision-making under system failures</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Publications Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">
+                <span>SELECTED WRITINGS</span>
+                <span class="toggle-icon">▶</span>
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li><a href="signalframe_geograph_hotspot_march2020.pdf">SignalFrame's GeoGraph COVID-19 Model</a> (2020)</li>
+                    <li><a href="Modelling%20Temporal%20Graphs%20and%20Embeddings-v0.1.pdf">Modelling Temporal Graphs and Embeddings -- A Practitioner's Approach</a> (2020)</li>
+                    <li><a href="Declarative%20Concurrent%20Programming%20in%20Streaming%20Systems.pdf">Declarative Concurrent Programming in Streaming Systems</a> (2019)</li>
+                    <li><a href="Commune%20-%20Shared%20Ownership%20in%20an%20Agnsotic%20Cloud.pdf">Commune - Shared Ownership in an Agnostic Cloud</a> (IEEE TIFS 2018)</li>
+                    <li><a href="Securing_DBs_from_Probabilistic_Inference.pdf">Securing Databases from Probabilistic Inference</a> (CSF 2017)</li>
+                    <li><a href="Monitoring%20of%20Temporal%20First-order%20Properties%20with%20Aggregations.pdf">Monitoring of Temporal First-order Properties with Aggregations</a> (FMSD 2015)</li>
+                </ul>
+
+                <p style="margin-top: 20px;">
+                    <span class="command">view_full_list</span><br>
+                    Full publication list: <a href="https://dblp.org/pers/hd/m/Marinovic:Srdjan">DBLP</a><br>
+                    Patents: <a href="https://patents.google.com/?inventor=Srdjan+Marinovic">Google Patents</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="pixel-decoration">▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲</div>
+
+        <div class="footer">
+            System ready. Click sections to expand/collapse.
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('expanded');
+
+            // Add a subtle pixel sound effect feel with a brief color flash
+            header.style.background = 'linear-gradient(90deg, var(--cyan) 0%, var(--blue) 100%)';
+            setTimeout(() => {
+                header.style.background = '';
+            }, 150);
+        }
+
+        // Optional: Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.section.expanded').forEach(section => {
+                    section.classList.remove('expanded');
+                });
+            }
+        });
+
+        // Add a subtle parallax effect on scroll
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const decoration = document.querySelectorAll('.pixel-decoration');
+            decoration.forEach(elem => {
+                elem.style.transform = `translateX(${(scrollTop - lastScrollTop) * 0.5}px)`;
+            });
+            lastScrollTop = scrollTop;
+        }, false);
+    </script>
+</body>
+</html>
